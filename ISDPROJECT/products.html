@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
+          <title>Ceramics Network</title>
+          <link rel="stylesheet" type="text/css" href="../css/screen_styles.css" />
+          <link rel="stylesheet" type="text/css" href="../css/screen_layout_large.css" />
+          <link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:500px)"   href="../css/screen_layout_small.css">
+          <link rel="stylesheet" type="text/css" media="only screen and (min-width:501px) and (max-width:800px)"  href="../css/screen_layout_medium.css">
+          <link rel="stylesheet" type="text/css" href="css/product.css"/>
+         
+          <!--[if lt IE 9]>
+              <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]-->
+	</head>
+	<body>
+      
+            <header class="topheader">
+                 <ul>
+                  <li><a href="adminpanel.php">Home</a></li>
+                  <li><a href="index.php">Sign Out</a></li>
+                 </ul>
+            </header>
+            <br>
+            <!--<div class="page">-->
+              <div class="buttonpanel">
+                
+                    <form enctype="multipart/form-data" action="products.php" method="post">
+                      <ul>
+                        <li> <input type="submit" class="ib" value="Show Table" name="showtable"></li>
+                        <li> <a href="productinsert.php" class="ib" >Insert</a></li> 
+                      </ul>
+                      
+                      
+                    </form>
+              </div>
+              
+              <div class="tablepanel">
+					<?php
+                                    $username="root";
+									$password="";
+									$database="ceramics";
+                                    mysql_connect("localhost",$username,$password);
+                                    @mysql_select_db($database) or die( "Unable to select database");
+                                       
+                               if(isset($_POST['showtable']))
+                                {
+                                    
+                                          $query="SELECT * FROM product";
+										  
+										  $result = mysql_query($query);
+										  if (!$result) {
+											  DIE("Query to show fields from table failed");
+										  }
+										  echo '<table class="gridtable" >';
+										  echo  '<tr>';
+										  echo  '<th>Id</th><th>CompanyName</th><th>Details</th><th>price</th><th>Image</th><th>Date of Release</th><th>Availablity</th><th>Viewers</th><th>Delete</th>';
+										  echo  '</tr>';
+										  
+										 while($row = mysql_fetch_assoc($result))
+										  {
+											  echo "<tr>";
+											  foreach($row as $cell)
+											  echo "<td>$cell</td>";
+											  
+										  	echo "<td><a href='productdelete.php?del=$row[id]'>delete</a></td>"; 
+                
+             
+											  
+										   
+											  // $row is array... foreach( .. ) puts every element
+											  // of $row to $cell variable
+											//  foreach($row as $cell)
+												//  echo <td>$cell</td>";
+//										      
+//											  echo '<td>';
+//											  
+//											  
+//                                              echo a href='delete.php?del=$row[id]'>delete</a>";
+//											  
+//											  echo "</form>";
+//                                              echo '</td>';
+//											  echo "</tr>\n";
+										  }
+										// mysql_free_result($result);
+								}
+        
+                    ?>  
+                    
+                    <br>
+                    <div class="nppanel">
+                     
+                    <form>
+                         <ul>
+                              <li> <input type="submit" class="more" value="More"></li>
+                               <li><input type="submit" class="more" value="Previous"></li>
+                            </ul>   
+                    </form>
+                   </div>    
+              </div>
+              
+            <!--</div>-->
+            
+	</body>
+    
+ 
+    
+</html>
