@@ -1,0 +1,280 @@
+@charset "UTF-8";
+
+/* Global Styles */
+
+body {
+	color: #575c7a;
+	line-height: 1.5em;
+	font-family: Arial;
+	font-size: 14px;
+	background:url(../images/1.jpg);
+	width:100%;
+	}
+.page {
+	width:100%;
+	margin: 0px auto;
+	position: relative; 
+	background-color: #AAA;
+}
+
+
+header {
+ height: 60px; 
+top:0;
+width:100%;
+position:absolute;
+background:#ff7c00  url(../images/overlay.png) repeat-x;
+margin-left:-10px;
+}
+header ul{
+	list-style:none;
+	float:right;
+	}
+header ul li{
+	display:inline;
+	padding:40px;}
+header ul li a{
+	text-decoration:none;
+	color:black;
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size:28px;
+	font-weight:200;}		
+
+.buyerheader{
+
+}
+	
+.buyerdetail{
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size:36px;
+	color:#010;
+	text-align:center;
+	margin-top:10px;
+	
+}	
+h1 { color: #a6430a; margin: 0em 0em .5em 0em; font-size: 2em; font-weight: normal; }
+h2 { font-size: 1.7em; margin: 0em 0em 1em 0em; }
+h3 { font-size: 1.5em; margin: 0em 0em 1em 0em; }
+
+p { margin: 0px 0px .75em 0px; }
+a { color: #de9000; }
+a:hover { color: #009eff; }
+a.cta {
+	text-transform: uppercase;
+	font-size: .9em;
+	font-weight: bold;
+	text-decoration: none;
+	margin: .5em 0 0 0;
+	padding: 0px 12px 0px 0px;
+	background: url(../images/cta_arrow.png) no-repeat right 0px;
+}
+a.cta:hover { background-position: right -50px; }
+footer { font-size: .85em; color: #9ba0bd; background-color: #515673; padding: 10px 10px 10px 0px; }
+
+.promo h3 { font-size: 1.1em; margin: 0; }
+.promo p { line-height: 1.2em; font-size: .9em; margin-bottom: .5em; }
+
+.promo { background-repeat: no-repeat; }
+
+.promo.one { background-image: url(../images/promo_1.jpg); }
+.promo.two { background-image: url(../images/promo_2.jpg); }
+.promo.three { background-image: url(../images/promo_3.jpg); }
+
+
+/*nav a {
+	color: #f5a06e;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+	font-weight: bold;
+	font-size: .9em;
+}
+nav a:hover { color: #fff; }
+*/
+
+/*//.clear-fix { clear: both; line-height: 1px; }*/
+
+.buttonpanel{
+ background:#BBB;
+ width:300px;
+ height:500px;	
+ top:400;
+ margin: 0px auto;
+ margin-top:120px;
+ float:left; 
+ opacity:.8;
+border:1px solid black;	
+}
+
+// Button css
+
+.buttonpanel ul a{
+text-decoration:none;
+//border:1px solid black;
+display:block;
+color:white;
+font-weight:bold;
+
+}
+.buttonpanel  ul{
+
+position:relative;
+left:0;
+
+}
+.buttonpanel  ul li a{
+text-decoration:none;
+}
+.ib{
+  background:none;
+  border:none;
+  font-size:1em;
+  color:#EEE;
+}
+.buttonpanel  ul li{
+
+position:relative;
+display:block;
+padding:20px;
+box-shadow: 2px 2px 5px white;
+width:150px;
+height:20px;
+opacity:1;
+background:#5C5858;
+border-radius:20px;
+transition:background 1s;
+margin:20px;
+margin-left:0px;
+font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+font-size:19px;
+
+}
+.buttonpanel ul li:hover{
+background:skyblue;
+}
+.buttonpanel  ul li a:hover{
+ color:black;
+ text-decoration:none;
+}
+.buttonpanel  ul li a{
+
+display:block;
+position:absolute;
+line-height: 60px; /*this makes the link middle of list*/
+left:200;
+width:100%;
+top:0;
+transition:color .01s;
+}
+.tablepanel{
+width:500px;
+height:500px;
+background:#BBB;
+border:1px solid black;	
+float:left;
+postiton:relative;
+margin-left:20px;
+margin-top:120px;
+opacity:.8;
+}
+.productform{
+ width:500px;
+ margin:0px auto;
+ display:block;
+ background:#BBB;
+ border:1px solid black;
+ height:300px;
+ postion:relative;
+  opacity: .8;
+  margin-top:120px;
+}
+input{
+
+font-size:18px;
+}
+label{
+font-size:18px;
+margin-left:20px;
+}
+
+table
+{
+
+width:800px;
+margin:0px auto;
+margin-top:-180px;
+position:absolute;
+margin-left:120px;
+}
+th, td{
+border: 1px solid black;
+padding:5px;
+color:white;
+font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+font-size:18px;	
+}
+
+.nppanel{
+ background:#BBB;
+ width:500px;
+ height:100px;
+  margin: 0px auto;
+ margin-top:105px;
+ opacity:.8;
+// border:1px solid black;
+ line-height:60px;
+}
+
+// Button css
+
+.nppanel ul a{
+text-decoration:none;
+//border:1px solid black;
+display:block;
+color:white;
+font-weight:bold;
+
+}
+.nppanel  ul{
+
+position:relative;
+left:0;
+}
+.nppanel  ul li a{
+text-decoration:none;
+}
+.nppanel  ul li{
+
+position:relative;
+display:inline-block;
+padding:20px;
+
+width:150px;
+height:20px;
+opacity:1;
+
+transition:background 1s;
+margin:10px;
+margin-left:0px;
+font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+font-size:19px;
+position: relative;
+top: 250px;
+}
+.nppanel ul li:hover{
+
+}
+.nppanel  ul li a:hover{
+ color:black;
+ text-decoration:none;
+}
+.nppanel  ul li a{
+
+display:block;
+position:absolute;
+line-height: 60px; /*this makes the link middle of list*/
+left:200;
+width:100%;
+top:0;
+transition:color .01s;
+}

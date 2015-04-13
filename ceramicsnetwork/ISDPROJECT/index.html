@@ -1,0 +1,201 @@
+<?php /* session_start(); */ ?>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1" />
+		<title>Ceramics Network</title>
+		<link rel="stylesheet" type="text/css" href="css/screen_styles.css" />
+		<link rel="stylesheet" type="text/css" href="css/screen_layout_large.css" />
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:50px) and (max-width:500px)"   href="css/screen_layout_small.css">
+		<link rel="stylesheet" type="text/css" media="only screen and (min-width:501px) and (max-width:800px)"  href="css/screen_layout_medium.css">
+		
+        <!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+  
+        <header class="topheader">
+         <ul>
+          <li><a href="index.php">Sign In</a></li>
+          <li><a href="reg.php">Register</a></li>
+         </ul>
+        </header>
+		<div class="page">
+         
+            <div class="mainform">
+               <div class="upper">
+               </div>
+               <div class="lower">
+               		<?php
+				    
+				
+				/*
+					if(isset($_SESSION['session_msg']))
+					{
+						echo $_SESSION['session_msg'];
+						unset($_SESSION['session_msg']);
+					}
+					*/
+				?>
+                 <form method="POST" id="login-form" action="#" >
+                       <input type="hidden" name="csrfmiddlewaretoken" value="ffd01154209c39484371f3b36f357cf5">
+                      <p><label for="id_username">Username:</label> <input name="uname" maxlength="30" autocapitalize="off" autocorrect="off" type="text" id="id_username"></p>
+                      <p><label for="id_password">Password:</label> <input autocapitalize="off" autocorrect="off" type="password" name="pass" id="id_password"></p>
+                      <p class="form-actions">
+                       <a href="/accounts/password/reset/">Forgot password?</a>
+                       <input type="submit" class="button-green" value="Log in &raquo;" name="signin">
+                      </p>
+                  </form>
+                 <?php
+				  
+				    session_start();
+					
+                    if(isset($_POST["signin"]))
+					{
+						$username="root";$password="";$database="ceramics";
+                        mysql_connect("localhost",$username,$password);
+                        @mysql_select_db($database) or die( "Unable to select database");
+						$uname=$_POST["uname"];
+						$upas=$_POST["pass"];
+						$_SESSION['user']=$uname;
+						//echo "<h1>".$uname."</h1>";
+						$query1="SELECT type FROM logintype WHERE name='".$uname."'";
+						$result1 = mysql_query($query1);
+                        if (!$result1) {
+                            DIE("Query to show fields from table failed");
+                        }	
+						else
+						{
+							while ($row = mysql_fetch_array($result1)) 
+						     {
+								 $type=$row['type'];
+								 $_SESSION['login']=$type;
+								 
+							    // echo $type;
+								 
+								 if($type=='0')
+								 {
+									 //echo "0";
+									 $query2="SELECT admin_pass FROM admin WHERE admin_pass='".$upas."'";
+									 
+						             $result2 = mysql_query($query2);
+                                     if (!$result2) {
+                                      DIE("Wrong Password");
+									  }	
+									  else
+									  {
+										  while ($row = mysql_fetch_array($result2)) 
+										   {
+											 $addminpass= $row['admin_pass']; 
+											 if($addminpass==$upas)
+											  {
+												 header('Location:adminpanel.php');   
+											  }
+											 else
+											 {
+											  	// echo "<h1>Wrong Password</h1>";
+											 } 
+											// echo $addminpass;
+										   }
+									  }
+								 }
+								 else if($type=='1')
+								 {
+									$query3="SELECT password FROM companies WHERE password='".$upas."'";
+									 
+						             $result3 = mysql_query($query3);
+                                     if (!$result3) {
+                                      DIE("Wrong Password");
+									  }	
+									  else
+									  {
+										  while ($row = mysql_fetch_array($result3)) 
+										   {
+											 $comppass= $row['password']; 
+											 if($comppass==$upas)
+											  {
+												 header('Location:adminpanel.php');   
+											  }
+											 else
+											 {
+											  	// echo "<h1>Wrong Password</h1>";
+											 } 
+											// echo $addminpass;
+										   }
+									  }
+								 }
+								 else if($type=='2')
+								 {
+									 $query4="SELECT password FROM intbuyer WHERE password='".$upas."'";
+									 
+						             $result4 = mysql_query($query4);
+                                     if (!$result4) {
+                                      DIE("Wrong Password");
+									  }	
+									  else
+									  {
+										   
+										  while ($row = mysql_fetch_array($result4)) 
+										   {
+											 $comppass= $row['password'];
+											 //$passhash=md5($upas); 
+											 echo "<h1>Wrong Password</h1>";
+											 if($comppass==$upas)
+											  {
+												 header('Location:homedemo.php');   
+											  }
+											 else
+											 {
+											  	// echo "<h1>Wrong Password</h1>";
+											 } 
+											// echo $addminpass;
+										   }
+									  }
+								 }
+                                 else if($type=='3')
+								 {
+									 $query5="SELECT password FROM ldealer WHERE password='".$upas."'";
+									 
+						             $result5 = mysql_query($query5);
+                                     if (!$result5) {
+                                      DIE("Wrong Password");
+									  }	
+									  else
+									  {
+										   
+										  while ($row = mysql_fetch_array($result5)) 
+										   {
+											 $comppass= $row['password'];
+											 //$passhash=md5($upas); 
+											 echo "<h1>Wrong Password</h1>";
+											 if($comppass==$upas)
+											  {
+												 header('Location:homedemo.php');   
+											  }
+											 else
+											 {
+											  	// echo "<h1>Wrong Password</h1>";
+											 } 
+											// echo $addminpass;
+										   }
+									  }
+								 }
+
+
+							 }
+
+						}		
+					}
+					else
+					// echo "Click";
+			
+				  ?>
+				                 
+				
+               </div>
+             </div>
+	</body>
+    
+</html>
